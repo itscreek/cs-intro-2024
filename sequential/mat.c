@@ -35,13 +35,17 @@ int main(){
 
   t1 = getrusage_sec();
 
+  double ONE_THIRD = 1.0 / THREE;
   for (i = 0; i < N; i++){
     for (k=0; k < N; k++) {
       for (j=0; j < N; j++) {
+        if (i == 0) {
+          b[k][j] *= ONE_THIRD;
+        }
         if (k == 0) {
           c[i][j] = ZERO;
         }
-        c[i][j] = c[i][j] + a[i][k] * b[k][j] / THREE;
+        c[i][j] = c[i][j] + a[i][k] * b[k][j];
       }
     }
   } 
