@@ -36,13 +36,15 @@ int main(){
   t1 = getrusage_sec();
 
   for (i = 0; i < N; i++){
-    for (j = 0; j < N; j++){
-      c[i][j] = ZERO;
-      for (k = 0; k < N; k++){
-          c[i][j] = c[i][j] + a[i][k] * b[k][j] / THREE;
+    for (k=0; k < N; k++) {
+      for (j=0; j < N; j++) {
+        if (k == 0) {
+          c[i][j] = ZERO;
+        }
+        c[i][j] = c[i][j] + a[i][k] * b[k][j] / THREE;
       }
     }
-  }
+  } 
 
   t2 = getrusage_sec();
 
