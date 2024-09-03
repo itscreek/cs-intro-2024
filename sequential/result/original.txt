@@ -1,0 +1,10 @@
+salloc: Pending job allocation 7953028
+salloc: job 7953028 queued and waiting for resources
+salloc: job 7953028 has been allocated resources
+salloc: Granted job allocation 7953028
+time =  236.83082
+184.458017
+salloc: Relinquishing job allocation 7953028
+salloc: Job allocation 7953028 has been revoked.
+
+exit code: 0
