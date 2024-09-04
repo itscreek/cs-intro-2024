@@ -13,6 +13,8 @@ int main(){
 
   answer = 0;
 
+  int chunk_size = 1000;
+  #pragma omp parallel for private(j) reduction(+: answer) schedule(dynamic, chunk_size)
   for(i = L; i <= R; i++){
     t = i;
     for(j = 2; j*j <= i; j++){
