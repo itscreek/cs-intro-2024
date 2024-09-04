@@ -13,15 +13,18 @@ int main(){
 
   t1 = omp_get_wtime();
   
+  #pragma omp parallel for
   for (n = 0; n < N; n++){
     C[n][0] = 1;
   }
 
+  #pragma omp parallel for
   for (k = 1; k < K; k++){
     C[0][k] = 0;
   }
 
   for (n = 1; n < N; n++){
+    #pragma omp parallel for
     for(k = 1; k < K; k++){
       C[n][k] = (C[n-1][k-1] + (long long) C[n-1][k]) % P;
     }
