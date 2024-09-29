@@ -6,15 +6,14 @@
 
 int main(){
   long long i, j, t;
-  long long answer;
+  long long min, min_idx;
   double t1, t2;
 
   t1 = omp_get_wtime();
 
-  answer = 0;
+  min = 97;
+  min_idx = 0;
 
-  int chunk_size = 1000;
-  #pragma omp parallel for private(j) reduction(+: answer) schedule(dynamic, chunk_size)
   for(i = L; i <= R; i++){
     t = i;
     for(j = 2; j*j <= i; j++){
@@ -23,12 +22,17 @@ int main(){
         break;
       }
     }
-    answer += t;
+    
+    if (min > t){
+      min = t;
+      min_idx = i;
+    }
   }
 
   t2 = omp_get_wtime();
 
-  printf("answer %lld\n", answer);
+  printf("minimum value %lld\n", min);
+  printf("index %lld\n", min_idx)
   printf("time %f\n", t2-t1);
   
   return 0;
