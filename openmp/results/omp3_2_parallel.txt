@@ -1,0 +1,5 @@
+minimum value 2
+index 11676000
+time 0.669044
+
+exit code: 0
