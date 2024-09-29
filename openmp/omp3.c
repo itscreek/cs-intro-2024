@@ -32,7 +32,7 @@ int main(){
   t2 = omp_get_wtime();
 
   printf("minimum value %lld\n", min);
-  printf("index %lld\n", min_idx)
+  printf("index %lld\n", min_idx);
   printf("time %f\n", t2-t1);
   
   return 0;
